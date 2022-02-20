@@ -1,0 +1,54 @@
+.list-box {
+  background: lightsteelblue;
+  border-radius: 4px;
+  margin-top: 32px;
+  padding: 16px;
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    li {
+      margin-bottom: 8px;
+      font-size: 16px;
+      min-height: 50px;
+      word-break: break-all;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      border-radius: 4px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .done {
+      text-decoration-line: line-through;
+    }
+
+    $colors: #65c18c, #ffbed8, #ff7ba9, #84dfff, #fdf5ca, #9feed1;
+    $repeat: length($colors);
+    @for $i from 1 through $repeat {
+      &:nth-child(#{length($colors)}n + #{$i}) {
+        li {
+          background: darken(nth($colors, random(length($colors))), 0.1);
+        }
+      }
+    }
+
+    //@for $i from 1 through $repeat {
+    //  &:nth-child(#{$i}) {
+    //    $random-color: rgb(random(255), random(255), random(255));
+    //    li {
+    //      background: $random-color 0%;
+    //    }
+    //  }
+    //}
+  }
+  .situation {
+    color: black;
+    li {
+      font-size: 24px;
+      background: aliceblue !important;
+    }
+  }
+}
